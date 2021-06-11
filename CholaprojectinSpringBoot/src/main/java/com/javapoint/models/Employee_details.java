@@ -1,9 +1,15 @@
 package com.javapoint.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -22,13 +28,18 @@ public class Employee_details {
 	private String user_id;
 	private String password;
 	private String status;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "employee_role",
+		joinColumns = { @JoinColumn(name = "fk_role")},
+			inverseJoinColumns = { @JoinColumn(name = "fk_employee")})
+	private List<Rolemstr> rolemstr;
 	
 	public Employee_details() {
 		super();
 	}
 
 	public Employee_details(Long emp_id, String first_name, String last_name, String email_id, Long phone_no,
-			String user_id, String password, String status) {
+			String user_id, String password, String status, List<Rolemstr> rolemstr) {
 		super();
 		this.emp_id = emp_id;
 		this.first_name = first_name;
@@ -38,6 +49,7 @@ public class Employee_details {
 		this.user_id = user_id;
 		this.password = password;
 		this.status = status;
+		this.rolemstr = rolemstr;
 	}
 
 	public Long getEmp_id() {
@@ -102,6 +114,14 @@ public class Employee_details {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public List<Rolemstr> getRolemstr() {
+		return rolemstr;
+	}
+
+	public void setRolemstr(List<Rolemstr> rolemstr) {
+		this.rolemstr = rolemstr;
 	}
 
 	

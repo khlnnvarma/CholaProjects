@@ -4,7 +4,7 @@ import java.util.Set;
 
 public interface CurdServices<T,ID>{
 	
-	T findbyID(ID id);
+	T findbyID(Long id);
 	
 	Set<T> findAll();
 	
