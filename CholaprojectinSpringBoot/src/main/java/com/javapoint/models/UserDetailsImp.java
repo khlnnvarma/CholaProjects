@@ -14,6 +14,7 @@ public class UserDetailsImp implements UserDetails{
 	private String username;
 	private String password;
 	private String firstname;
+	private String status;
 	private List<GrantedAuthority> roles;
 
 	public UserDetailsImp() {
@@ -25,6 +26,7 @@ public class UserDetailsImp implements UserDetails{
 		this.username = emp.getUserid();
 		this.password = emp.getPassword();
 		this.firstname = emp.getFirst_name();
+		this.status =emp.getStatus();
 		List<GrantedAuthority> roles=new ArrayList<>();
 		for(Rolemstr role : emp.getRolemstr())
 		{
@@ -72,7 +74,10 @@ public class UserDetailsImp implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		
-		return true;
+		if(this.status.equals("Active"))
+			return true;
+		else
+			return false;
 	}
 
 }

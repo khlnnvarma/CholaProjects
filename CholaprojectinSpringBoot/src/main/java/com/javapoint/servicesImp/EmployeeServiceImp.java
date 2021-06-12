@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.javapoint.jpaRepository.EmployeeDetailsRep;
@@ -37,6 +38,10 @@ public class EmployeeServiceImp implements EmployeeServices {
 
 	@Override
 	public Employee_details Save(Employee_details obj) {
+		
+		obj.setPassword(new BCryptPasswordEncoder().encode(obj.getPassword()));
+		
+		obj.setStatus("Active");
 		
 		return edp.save(obj);
 	}
