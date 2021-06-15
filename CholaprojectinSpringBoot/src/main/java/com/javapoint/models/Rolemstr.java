@@ -104,10 +104,6 @@ public class Rolemstr{
 	public void setEmployee_details(List<Employee_details> employee_details) {
 		this.employee_details = employee_details;
 	}
-
-
-	
-	
 	
 
 }
