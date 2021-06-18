@@ -37,20 +37,20 @@ public class Employee_details {
 	private String password;
 	private String status;
 	
-	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "employee_role",
-		joinColumns = { @JoinColumn(name = "fk_role")},
-			inverseJoinColumns = { @JoinColumn(name = "fk_employee")})
+		joinColumns = { @JoinColumn(name = "fk_employee")},
+			inverseJoinColumns = { @JoinColumn(name = "fk_role")})
 	private List<Rolemstr> rolemstr;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "branch_id")
 	private Branchmstr branch;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
 	@JoinTable(name = "employee_project",
-	joinColumns = {@JoinColumn(name="fk_project")},
-	inverseJoinColumns = {@JoinColumn(name = "fk_employee")})
+	joinColumns = {@JoinColumn(name="fk_employee")},
+	inverseJoinColumns = {@JoinColumn(name = "fk_project")})
 	private List<Projectmstr> projectMstr;
 	
 	@OneToOne(targetEntity = Addressdetails.class, cascade = CascadeType.ALL)

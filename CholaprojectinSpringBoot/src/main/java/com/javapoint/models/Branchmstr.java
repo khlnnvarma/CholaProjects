@@ -19,13 +19,13 @@ public class Branchmstr{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "BranchSeq")
-	@SequenceGenerator(name = "BranchSeq",sequenceName = "Branch_seq",allocationSize = 1)
+	@SequenceGenerator(name = "BranchSeq",sequenceName = "BRANCH_SEQ",allocationSize = 1)
 	private Long branch_id;
 	private String branch_Name;
 	private String created_By;
 	private String status;
 	private String created_on;
-	@OneToMany(mappedBy = "emp_id")
+	@OneToMany(orphanRemoval = true,mappedBy = "emp_id")
 	private List<Employee_details> employeeDetails;
 	
 	public Branchmstr() {
