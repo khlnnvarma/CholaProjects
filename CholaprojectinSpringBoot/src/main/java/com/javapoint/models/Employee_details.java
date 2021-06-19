@@ -1,5 +1,6 @@
 package com.javapoint.models;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -36,6 +37,8 @@ public class Employee_details {
 	private String userid;
 	private String password;
 	private String status;
+	private String gender;
+	private Date dateOfBirth;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "employee_role",
@@ -62,9 +65,10 @@ public class Employee_details {
 		super();
 	}
 
+
 	public Employee_details(Long emp_id, String first_name, String last_name, String email_id, Long phone_no,
-			String userid, String password, String status, List<Rolemstr> rolemstr, Branchmstr branch,
-			List<Projectmstr> projectMstr, Addressdetails addressDetails) {
+			String userid, String password, String status, String gender, Date dateOfBirth, List<Rolemstr> rolemstr,
+			Branchmstr branch, List<Projectmstr> projectMstr, Addressdetails addressDetails) {
 		super();
 		this.emp_id = emp_id;
 		this.first_name = first_name;
@@ -74,11 +78,17 @@ public class Employee_details {
 		this.userid = userid;
 		this.password = password;
 		this.status = status;
+		this.gender = gender;
+		this.dateOfBirth = dateOfBirth;
 		this.rolemstr = rolemstr;
 		this.branch = branch;
 		this.projectMstr = projectMstr;
 		this.addressDetails = addressDetails;
 	}
+
+
+
+
 
 	public Long getEmp_id() {
 		return emp_id;
@@ -175,7 +185,26 @@ public class Employee_details {
 	public void setAddressDetails(Addressdetails addressDetails) {
 		this.addressDetails = addressDetails;
 	}
+	
 
+
+	public String getGender() {
+		return gender;
+	}
+
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
 
 
 	

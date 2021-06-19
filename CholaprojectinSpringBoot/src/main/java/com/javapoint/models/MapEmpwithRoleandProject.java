@@ -1,25 +1,32 @@
 package com.javapoint.models;
 
 import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 @Component
-public class MapEmpwithRoles {
+public class MapEmpwithRoleandProject {
 	
 	private Long emp_id;
 	private List<Long> role_ids;
+	private List<Long> projetids;
 	
 	
-	public MapEmpwithRoles() {
+	public MapEmpwithRoleandProject() {
 		super();
 	}
 
-	public MapEmpwithRoles(Long emp_id, List<Long> role_ids) {
+	
+	
+	public MapEmpwithRoleandProject(Long emp_id, List<Long> role_ids, List<Long> projetids) {
 		super();
 		this.emp_id = emp_id;
 		this.role_ids = role_ids;
+		this.projetids = projetids;
 	}
-	
+
+
+
 	public Long getEmp_id() {
 		return emp_id;
 	}
@@ -32,7 +39,14 @@ public class MapEmpwithRoles {
 	public void setRole_ids(List<Long> role_ids) {
 		this.role_ids = role_ids;
 	}
-	
+
+	public List<Long> getProjetids() {
+		return projetids;
+	}
+
+	public void setProjetids(List<Long> projetids) {
+		this.projetids = projetids;
+	}
 	
 
 }

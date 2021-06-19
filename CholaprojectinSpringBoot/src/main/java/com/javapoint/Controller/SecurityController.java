@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.javapoint.models.AuthenticateRequest;
 import com.javapoint.models.AuthenticateResponse;
 import com.javapoint.models.UserDetailsImp;
-import com.javapoint.servicesImp.UserDetailsServiceimp;
+import com.javapoint.servicesImp.UserDetailsServiceImp;
 import com.javapoint.util.jwtutil;
 
 @RestController

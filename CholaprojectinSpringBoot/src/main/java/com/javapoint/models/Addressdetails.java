@@ -25,7 +25,7 @@ public class Addressdetails {
 	private String state;
 	private String district;
 	private String village;
-	private String House_no;
+	private String house_no;
 	@OneToOne(mappedBy = "addressDetails")
 	@JsonBackReference
 	private Employee_details employee_Details;
@@ -42,7 +42,7 @@ public class Addressdetails {
 		this.state = state;
 		this.district = district;
 		this.village = village;
-		House_no = house_no;
+		this.house_no = house_no;
 		this.employee_Details = employee_Details;
 	}
 
@@ -87,13 +87,13 @@ public class Addressdetails {
 	}
 
 	public String getHouse_no() {
-		return House_no;
+		return house_no;
 	}
-
+	
 	public void setHouse_no(String house_no) {
-		House_no = house_no;
+		this.house_no = house_no;
 	}
-
+	
 	public Employee_details getEmployee_Details() {
 		return employee_Details;
 	}
@@ -103,6 +103,4 @@ public class Addressdetails {
 	}
 	
 
-
-	
 }

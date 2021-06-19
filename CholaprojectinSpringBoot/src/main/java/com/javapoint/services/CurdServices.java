@@ -2,6 +2,9 @@ package com.javapoint.services;
 
 import java.util.Set;
 
+import com.javapoint.models.Employee_details;
+import com.javapoint.models.MapEmpwithRoleandProject;
+
 public interface CurdServices<T,ID>{
 	
 	T findbyID(Long id);
@@ -13,5 +16,6 @@ public interface CurdServices<T,ID>{
 	void deleteById(ID id);
 	
 	void delete(T obj);
+
 
 }

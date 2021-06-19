@@ -1,5 +1,6 @@
 package com.javapoint.servicesImp;
 
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import com.javapoint.jpaRepository.RolemstrRepository;
 import com.javapoint.models.Rolemstr;
 import com.javapoint.services.RolemstrService;
 @Service
-public class RolemstrServiceimp implements RolemstrService {
+public class RolemstrServiceImp implements RolemstrService {
 	
 	@Autowired
 	private RolemstrRepository roleMstrRepository;
@@ -17,30 +18,30 @@ public class RolemstrServiceimp implements RolemstrService {
 	@Override
 	public Rolemstr findbyID(Long id) {
 		
-		return roleMstrRepository.findById(id).get();
+		Optional<Rolemstr> roleMstr= roleMstrRepository.findById(id);
+		return roleMstr.orElse(null);
 	}
 
 	@Override
 	public Set<Rolemstr> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return (Set<Rolemstr>) roleMstrRepository.findAll();
 	}
 
 	@Override
 	public Rolemstr Save(Rolemstr obj) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return roleMstrRepository.save(obj);
 	}
 
 	@Override
 	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
 		
+		roleMstrRepository.deleteById(id);
 	}
 
 	@Override
 	public void delete(Rolemstr obj) {
-		// TODO Auto-generated method stub
+		roleMstrRepository.deleteAll();
 		
 	}
 

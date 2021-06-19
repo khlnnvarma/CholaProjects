@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javapoint.models.Employee_details;
-import com.javapoint.models.MapEmpwithRoles;
+import com.javapoint.models.MapEmpwithRoleandProject;
 import com.javapoint.services.EmployeeServices;
 
 @RestController
@@ -37,9 +37,15 @@ public class EmployeeController {
 	}
 	
 	@PutMapping("/map/employee/roles")
-	public Employee_details MapEmployeeWithRoles(@RequestBody MapEmpwithRoles mapEmpWithRoles)
+	public Employee_details MapEmployeeWithRoles(@RequestBody MapEmpwithRoleandProject mapEmpWithRoles)
 	{
 		return Es.MapEmployeeWithRoles(mapEmpWithRoles);
+	}
+	
+	@PutMapping("/map/employee/projects")
+	public Employee_details MapEmployeeWithprojects(@RequestBody MapEmpwithRoleandProject mapEmpWithProjects)
+	{
+		return Es.MapEmployeeWithProjects(mapEmpWithProjects);
 	}
 
 }

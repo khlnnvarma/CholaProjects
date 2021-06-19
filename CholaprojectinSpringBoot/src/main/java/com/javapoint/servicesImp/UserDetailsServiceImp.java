@@ -14,12 +14,12 @@ import com.javapoint.models.UserDetailsImp;
 import com.javapoint.services.EmployeeServices;
 
 @Service
-public class UserDetailsServiceimp implements UserDetailsService{
+public class UserDetailsServiceImp implements UserDetailsService{
 
 	@Autowired
 	private EmployeeServices Es;
 	
-	public UserDetailsServiceimp() {
+	public UserDetailsServiceImp() {
 		super();
 	}
 
