@@ -1,5 +1,7 @@
 package com.javapoint.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javapoint.models.Employee_details;
+import com.javapoint.models.Branchmstr;
 import com.javapoint.models.MapEmpwithRoleandProject;
+import com.javapoint.services.BranchmstrServices;
 import com.javapoint.services.EmployeeServices;
 
 @RestController
@@ -19,6 +23,9 @@ public class EmployeeController {
 	
 	@Autowired
 	private EmployeeServices Es;
+	
+	@Autowired
+	private BranchmstrServices Bs;
 
 	public EmployeeController() {
 		super();
@@ -47,5 +54,12 @@ public class EmployeeController {
 	{
 		return Es.MapEmployeeWithProjects(mapEmpWithProjects);
 	}
+	
+	@GetMapping("/find/Active/Branches")
+	public List<Branchmstr> GetAllActiveBranches()
+	{
+		return Bs.getActivebranches();
+	}
+
 
 }
