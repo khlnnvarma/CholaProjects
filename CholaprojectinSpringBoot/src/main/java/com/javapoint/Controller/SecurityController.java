@@ -34,7 +34,7 @@ public class SecurityController {
 	public ResponseEntity<?> getJwt(@RequestBody AuthenticateRequest authenticationrequest)throws Exception
 	{
 		try {
-		authenticationmanager.authenticate(new UsernamePasswordAuthenticationToken(authenticationrequest.getUsername(), authenticationrequest.getPassword()));
+			authenticationmanager.authenticate(new UsernamePasswordAuthenticationToken(authenticationrequest.getUsername(), authenticationrequest.getPassword()));
 		}
 		catch(BadCredentialsException e)
 		{
