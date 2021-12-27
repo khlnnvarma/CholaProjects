@@ -61,10 +61,4 @@ public class EmployeeController {
 		return Bs.getActivebranches();
 	}
 
-	@GetMapping("/find/Active/Branchs")
-	public List<Branchmstr> GetAlActiveBranches()
-	{
-		return Bs.getActivebranches();
-	}
-
 }
